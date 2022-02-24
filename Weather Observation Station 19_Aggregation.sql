@@ -1,0 +1,10 @@
+SELECT ROUND(SQRT(r1.A),4)
+FROM
+(
+    SELECT POW(r2.X,2)+ POW(r2.Y,2) AS A
+    FROM
+    (
+        SELECT MAX(LAT_N)-MIN(LAT_N) AS X, MAX(LONG_W)-MIN(LONG_W) AS Y
+        FROM STATION      
+    ) AS r2
+) AS r1;
